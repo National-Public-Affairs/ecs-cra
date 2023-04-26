@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, SyntheticEvent } from 'react';
-// import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
@@ -46,25 +45,8 @@ export default function Contact() {
     }
   };
 
-  // import ENV variables
-  const privateKey = import.meta.env.VITE_GS_PRIVATE_KEY;
-  const clientEmail = import.meta.env.VITE_GS_CLIENT_EMAIL;
-  const spreadsheetId = import.meta.env.VITE_GS_SPREADSHEET_ID;
-
-  // instantiate new Google Sheet obj
-  // const spreadsheet = new GoogleSpreadsheet(import.meta.env.VITE_GS_SPREADSHEET_ID);
-
   const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>): Promise<any> => {
     event.preventDefault();
-    // update Google sheet
-    // try {
-    //   await spreadsheet.useServiceAccountAuth({
-    //     client_email: '',
-    //     private_key: '',
-    //   });
-    // } catch (e) {
-
-    // }
 
     const toastId = toast.loading('Submitting...');
     if (optIn) {
