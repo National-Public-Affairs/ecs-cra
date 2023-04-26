@@ -1,0 +1,25 @@
+{
+  "name": "ecs-node",
+  "version": "1.0.0",
+  "description": "Express app, serving CRA frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/National-Public-Affairs/ecs-cra.git"
+  },
+  "author": "Andrew Bourgeois (National Public Affairs)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/National-Public-Affairs/ecs-cra/issues"
+  },
+  "homepage": "https://github.com/National-Public-Affairs/ecs-cra#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
