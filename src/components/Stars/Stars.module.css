@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+
+.star {
+  width: 2vw;
+}
+
+/* general mobile styling */
+@media only screen and (max-width: 900px) and (min-height: 300px) {
+  .wrapper {
+    gap: 5vw;
+  }
+  
+  .star {
+    width: 4vw;
+  }
+}

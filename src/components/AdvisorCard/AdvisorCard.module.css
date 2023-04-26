@@ -1,0 +1,41 @@
+.wrapper {
+  min-height: 360px;
+  padding: 1rem;
+  border: 5px solid rgb(58, 51, 147);
+  border-radius: 1rem;
+  box-shadow: 
+    1px 0.4px 2.2px rgba(0, 0, 0, 0.014), 
+    2.5px 0.9px 5.3px rgba(0, 0, 0, 0.02), 
+    4.6px 1.8px 10px rgba(0, 0, 0, 0.025), 
+    8.3px 3.1px 17.9px rgba(0, 0, 0, 0.03), 
+    15.5px 5.8px 33.4px rgba(0, 0, 0, 0.036), 
+    37px 14px 80px rgba(0, 0, 0, 0.05)
+  ;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.pic {
+  width: 150px;
+  height: 150px;
+  margin-top: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+.name {
+  margin-top: 1rem;
+  color: var(--red);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.title {
+  color: var(--purple-3);
+}
+
+.subtitle {
+  font-weight: 600;
+  color: var(--purple-3);
+}

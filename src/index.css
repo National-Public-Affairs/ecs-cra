@@ -1,13 +1,128 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+@import url("https://use.typekit.net/bqe4bat.css");
+
+:root {
+  font-family: interstate, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: var(--purple-4);
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --red: #ef0b2e;
+  --purple-1: #d7d3f7;
+  --purple-2: #a19bdc;
+  --purple-3: #3a3393;
+  --purple-4: #1d195d;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 500;
+  color: var(--purple-3);
+  text-decoration: inherit;
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+}
+a:hover {
+  color: var(--purple-1);
+}
+
+a:active {
+  color: var(--purple-4);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+p {
+  font-size: clamp(12px, 1.5vmax, 26px);
+  line-height: clamp(16px, 1.9vmax, 32px);
+  text-align: left;
+  font-family: "interstate", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--purple-4);
+  cursor: default;
+}
+
+li {
+  font-size: clamp(11px, 1.4vmax, 22px);
+  line-height: clamp(13px, 1.9vmax, 32px);
+  text-align: left;
+  font-family: "interstate", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+ol {
+  margin-bottom: 2rem;
+}
+
+ol > li {
+  margin-top: 1rem;
+}
+
+ol > li > ul > li {
+  margin-top: 1rem;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+::selection {
+  background: var(--red);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* general mobile styling */
+@media only screen and (max-width: 900px) and (min-height: 300px) {
+  p {
+    font-size: clamp(12px, 2.2vmax, 26px);
+    line-height: clamp(16px, 3vmax, 32px);
+  }
+
+  li {
+    font-size: clamp(11px, 2.2vmax, 22px);
+    line-height: clamp(13px, 3vmax, 32px);
+  }
 }

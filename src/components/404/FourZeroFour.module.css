@@ -1,0 +1,32 @@
+.wrapper {
+  min-height: 85vh;
+  display: grid;
+  grid-template: 100% / 100%;
+}
+
+.content {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  font-size: 4vmin;
+  color: var(--red);
+}
+
+/* general mobile styling */
+@media only screen and (max-width: 900px) and (min-height: 300px) {
+  .wrapper {
+    min-height: 95vh;
+  }
+
+  .content > h1 {
+    margin: 1rem;
+    font-size: 20vmin;
+  }
+
+  .content > h6 {
+    margin: 2rem 0;
+    font-size: 6vmin;
+  }
+}

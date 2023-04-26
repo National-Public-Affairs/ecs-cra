@@ -1,0 +1,40 @@
+.wrapper {
+  z-index: 0;
+  width: 70%;
+  max-width: 800px;
+  margin: 2.4rem auto 15vh auto;
+  padding: 5%;
+  background-color: white;
+  background-image: url(../../assets/paper-texture.png);
+  text-align: left;
+  font-family: "interstate", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--purple-4);
+  box-shadow:
+  2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+  6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+  12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+  22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+  41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+  100px 100px 80px rgba(0, 0, 0, 0.07)
+;
+}
+
+.logo {
+  width: 20%;
+  margin: 0 40%;
+}
+
+.headshot {
+  width: 100px;
+  border-radius: 10px;
+}
+
+/* general mobile styling */
+@media only screen and (max-width: 900px) and (min-height: 300px) {
+  .wrapper {
+    width: 90%;
+    margin: 2.4rem auto 1vh auto;
+  }
+}

@@ -1,0 +1,23 @@
+.embedWrapper {
+  max-width: 800px;
+  height: 100%;
+  margin: 0 auto 4rem auto;
+  border-radius: 1rem;
+  border: 3px solid white;
+  overflow: hidden;
+}
+
+.close {
+  margin-left: calc(100% - 48px);
+  cursor: pointer;
+  fill: var(--purple-3);
+}
+
+/* general mobile styling */
+@media only screen and (max-width: 900px) and (min-height: 300px) {
+  .embedWrapper {
+    max-width: 350px;
+    width: 95%;
+    margin: 4rem auto;
+  }
+}

@@ -1,0 +1,93 @@
+.general {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 10vh;
+  background-color: white;
+  border-bottom: 6px solid var(--purple-3);
+  font-family: "alternate-gothic-no-1-d", sans-serif;
+  font-size: clamp(36px, 2.5vmax, 48px);
+  font-weight: 400;
+  font-style: normal;
+  color: var(--purple-3);
+}
+
+.wrapper {
+  padding: 0 10%;
+  display: grid;
+  grid-template: 100% / 60% 20%;
+}
+
+.left {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: stretch;
+  align-self: stretch;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 3rem;
+}
+
+.right {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 7vh;
+}
+
+.selected {
+  color: var(--purple-2);
+}
+
+.link {
+  color: var(--red);
+}
+
+.mobileWrapper {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 10vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+}
+
+.modalOption {
+  color: white;
+  font-size: clamp(36px, 2.5vmax, 48px);
+}
+
+/* general mobile styling */
+@media only screen and (max-width: 900px) and (min-height: 300px) {
+  .wrapper {
+    display: none;
+  }
+  
+  .mobileWrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
