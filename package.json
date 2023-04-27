@@ -4,7 +4,8 @@
   "description": "Express app, serving CRA frontend",
   "main": "index.js",
   "scripts": {
-    "test": "run test"
+    "test": "run test",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "google-spreadsheet": "^3.3.0"
+    "google-spreadsheet": "^3.3.0",
+    "nodemon": "^2.0.22"
   }
 }
