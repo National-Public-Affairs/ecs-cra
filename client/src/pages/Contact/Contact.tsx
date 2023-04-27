@@ -1,69 +1,53 @@
 import React from 'react';
-import { useState, SyntheticEvent } from 'react';
+import { useState, useEffect, SyntheticEvent } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import Header from '../../components/Header/Header';
 import styles from './Contact.module.css';
 
-type InputType = 'firstName' | 'lastName' | 'email' | 'zip' | 'mobile' | 'textarea' | 'optIn';
+type FormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  zip: number;
+  mobile: number;
+  optIn: boolean;
+  message: string;
+}
 
 export default function Contact() {
   const navigate = useNavigate();
 
-  const [firstName, setFirstName] = useState<string>('');
-  const [lastName, setLastName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [zip, setZip] = useState<string>('');
-  const [mobile, setMobile] = useState<string>('');
-  const [optIn, setOptIn] = useState<boolean>(false);
-  const [textarea, setTextarea] = useState<string>('');
-
-  const handleInputChange = (event:SyntheticEvent, type: InputType) => {  
-    switch (type) {
-      case 'firstName':
-        setFirstName((event.target as HTMLInputElement).value);
-        break;
-      case 'lastName':
-        setLastName((event.target as HTMLInputElement).value);
-        break;
-      case 'email':
-        setEmail((event.target as HTMLInputElement).value);
-        break;
-      case 'zip':
-        setZip((event.target as HTMLInputElement).value);
-        break;
-      case 'mobile':
-        setMobile((event.target as HTMLInputElement).value);
-        break;
-      case 'textarea':
-        setTextarea((event.target as HTMLInputElement).value);
-        break;
-      case 'optIn':
-        break;
-      default:
-        break;
-    }
-  };
-
-  const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>): Promise<any> => {
-    event.preventDefault();
-
+  const { register, formState: { errors }, handleSubmit } = useForm<FormData>();
+  const onSubmit = async (data: FormData) => {
+    console.log(data);
     const toastId = toast.loading('Submitting...');
-    if (optIn) {
-      setTimeout(() => {
-        toast.success('Submitted successfully', { id: toastId });
-        setFirstName('');
-        setLastName('');
-        setEmail('');
-        setZip('');
-        setMobile('');
-        setTextarea('');
-        setTimeout(() =>  navigate('/'), 500);
-      }, 1500);
-    } else {
-      toast.error('You must be opted-in', { id: toastId });
+    try {
+      const resp = await fetch('/send', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      console.log('response:', resp);
+    } catch (e) {
+      toast.error(e, { id: toastId });
     }
+    toast.success('Submitted successfully', { id: toastId });
   };
+
+  // const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>): Promise<any> => {
+  //   event.preventDefault();
+  //   // instantiates a toast notification whose status can be changed
+  //   const toastId = toast.loading('Submitting...');
+  //     // toast.success('Submitted successfully', { id: toastId }); 
+  //     toast.error('You must be opted-in', { id: toastId });
+  //   }
+  // };
 
   return (
     <div className="page">
@@ -73,84 +57,93 @@ export default function Contact() {
         children={[]}
       />
 
-      <form className={styles.wrapper} onSubmit={handleSubmit}>
-        <label>
-          First Name
-          <input
-            type="text"
-            value={firstName}
-            onChange={(e) => handleInputChange(e, 'firstName')}
-          />
-        </label>
-        <br />
+      <form className={styles.wrapper} onSubmit={handleSubmit(onSubmit)}>
+        {/* first name input */}
+        <label htmlFor="firstName">First Name</label>
+        <input
+          type="text"
+          {...register('firstName', { required: true, maxLength: 20 })}
+          aria-invalid={errors.firstName ? "true" : "false"} 
+        />
+        {errors.firstName?.type === 'required' 
+        && <div role="alert">First name is required</div>}
+        {errors.firstName?.type === 'maxLength'
+          && <div role="alert">Length cannot exceed 20 characters</div>}
+        
+        {/* last name input */}
+        <label htmlFor="lastName">Last Name</label>
+        <input
+          type="text"
+          {...register('lastName', { required: false, maxLength: 20 })}
+          aria-invalid={errors.lastName ? "true" : "false"} 
+        />
+        {errors.lastName?.type === 'maxLength'
+          && <div role="alert">Length cannot exceed 20 characters</div>}
 
-        <label>
-          Last Name
-          <input
-            type="text"
-            value={lastName}
-            onChange={(e) => handleInputChange(e, 'lastName')}
-          />
-        </label>
-        <br />
+        {/* email input */}
+        <label htmlFor="email">Email</label>
+        <input
+          type="text"
+          {...register('email', {
+            required: true,
+            maxLength: 50,
+            pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+          })}
+          aria-invalid={errors.email ? "true" : "false"} 
+        />
+        {errors.email?.type === 'maxLength'
+          && <div role="alert">Length cannot exceed 50 characters</div>}
+        {errors.email?.type === 'pattern'
+          && <div role="alert">Must be a valid email</div>}
+        {errors.email?.type === 'required'
+          && <div role="alert">Email address is required</div>}
 
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => handleInputChange(e, 'email')}
-          />
-        </label>
-        <br />
+        {/* ZIP code input */}
+        <label htmlFor="zip">ZIP Code</label>
+        <input
+          type="number"
+          {...register('zip', { required: false, maxLength: 5 })}
+          aria-invalid={errors.zip ? "true" : "false"} 
+        />
+        {errors.zip?.type === 'maxLength'
+          && <div role="alert">Length cannot exceed 5 characters</div>}
 
-        <label>
-          ZIP
-          <input
-            type="text"
-            value={zip}
-            onChange={(e) => handleInputChange(e, 'textarea')}
-          />
-        </label>
-        <br />
+        {/* mobile phone number input */}
+        <label htmlFor="mobile">Mobile</label>
+        <input
+          type="number"
+          {...register('mobile', { required: false, maxLength: 10 })}
+          aria-invalid={errors.mobile ? "true" : "false"} 
+        />
+        {errors.zip?.type === 'maxLength'
+          && <div role="alert">Length cannot exceed 10 characters</div>}
 
-        <label>
-          Mobile
-          <input
-            type="text"
-            value={mobile}
-            onChange={(e) => handleInputChange(e, 'mobile')}
-          />
-        </label>
-        <br />
-
-        <div className="checkbox-wrapper">
-          <input
-            id="contact-checkbox"
-            type="checkbox"
-            checked={optIn}
-            onClick={() => setOptIn(!optIn)}
-            onChange={(e) => handleInputChange(e, 'optIn')}
-          />
-          <label htmlFor="contact-checkbox">
-            I would like to receive text messages from Elect Common Sense
-          </label>
-        </div>
-
+        {/* opt-in input */}
+        <label htmlFor="optIn">Opt-In</label>
+        <input
+          type="checkbox"
+          {...register('optIn', { required: true })}
+          aria-invalid={errors.optIn ? "true" : "false"} 
+        />
+        {errors.optIn?.type === 'required'
+          && <div role="alert">Opt-in is required</div>}
         <p className={styles.disclaimer}>
           By checking this box, I expressly consent to receive text messages from Elect Common sense. I understand that message and data rates may apply. I understand that I may revoke this consent at any time by texting “STOP” to any mobile message sent from Elect Common Sense. Text JOIN to 83902 to opt in to future traffic.
         </p>
 
-        <label>
-          Add your message
-          <textarea
-            value={textarea}
-            onChange={(e) => handleInputChange(e, 'textarea')}
-          />
-        </label>
-        <br />
+        {/* message input */}
+        <label htmlFor="message">Add your message</label>
+        <textarea 
+          {...register('message', { required: false, maxLength: 300 })}
+          aria-invalid={errors.message ? "true" : "false"} 
+        />
+        {errors.message?.type === 'maxLength'
+          && <div role="alert">Length cannot exceed 300 characters</div>}
 
-        <input type="submit" className="submit" />
+        {/* submit button */}
+        <input
+          type="submit"
+        />
       </form>
     </div>
   );
