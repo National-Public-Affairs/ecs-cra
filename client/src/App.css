@@ -60,6 +60,8 @@ form {
 }
 
 label {
+  display: block;
+  margin-top: 1rem;
   font-family: Interstate;
   font-size: 1.2rem;
   color: var(--purple-3);
@@ -68,7 +70,7 @@ label {
 
 input, textarea {
   width: 100%;
-  margin: 0.5rem 0 1.5rem 0;
+  margin: 0.5rem 0 0 0;
   padding: 1rem;
   border: 2px solid rgb(58, 51, 147);
   border-radius: 0.75rem;
@@ -79,18 +81,23 @@ input, textarea {
   transition: all 150ms ease-in-out;
 }
 
-input.submit:hover {
-  background-color: var(--red);
+input[type="submit"]:hover {
+  background-color: var(--purple-2);
   color: white;
 }
 
-input.submit:active {
+input[type="submit"]:active {
   background-color: var(--purple-3);
 }
 
 textarea:focus, input:focus{
   outline: none;
-  border: 3px solid var(--red);
+  border: 3px solid var(--purple-2);
+}
+
+div[role="alert"] {
+  font-size: 0.85rem;
+  color: var(--red);
 }
 
 .checkbox-wrapper {
@@ -102,7 +109,7 @@ textarea:focus, input:focus{
 }
 
 input[type="checkbox"] {
-  color: var(--purple-3);
+  display: block;
 }
 
 /* general mobile styling */
