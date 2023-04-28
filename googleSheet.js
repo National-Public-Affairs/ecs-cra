@@ -14,7 +14,7 @@ class InteractWithGoogleSheet {
     // initialize auth to Google Sheet
     const auth = await doc.useServiceAccountAuth({
       client_email: process.env.GS_CLIENT_EMAIL,
-      private_key: process.env.GS_PRIVATE_KEY,
+      private_key: process.env.GS_PRIVATE_KEY.split(String.raw`\n`).join('\n'),
     });
     console.log('auth', auth)
     const loadedDoc = await doc.loadInfo();
