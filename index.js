@@ -19,11 +19,18 @@ app.get('/*', (req, res) => {
 });
 
 // frontend sends form data meant for Google Sheet
-app.post('/send', (req, res) => {
-  googleSheet.writeToSheet(req.body);
-  res.status(200).json({
-    message: 'Successful request',
-  });
+app.post('/send', async (req, res) => {
+  const gs = await googleSheet.writeToSheet(req.body);
+  console.log('gs', gs);
+  if (gs.status) {
+    res.status(200).json({
+      message: 'Successful request',
+    });
+  } else {
+    res.status(400).json({
+      message: 'Bad request',
+    });
+  }
 });
 
 const port = process.env.PORT || 8000;
