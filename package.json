@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "run test",
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && GENERATE_SOURCEMAP=false npm run build",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
