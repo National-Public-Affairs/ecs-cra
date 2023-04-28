@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState, useEffect, SyntheticEvent } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -38,6 +37,7 @@ export default function Contact() {
       toast.error(e, { id: toastId });
     }
     toast.success('Submitted successfully', { id: toastId });
+    navigate('/');
   };
 
   // const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>): Promise<any> => {
