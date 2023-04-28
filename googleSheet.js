@@ -6,7 +6,7 @@ class InteractWithGoogleSheet {
     console.log('received data:', formData);
     const { firstName, lastName, email, zip, mobile, message } = formData;
     console.log('gs spreadsheet id:', process.env.GS_SPREADSHEET_ID);
-    console.log('client email:', env.GS_CLIENT_EMAIL);
+    console.log('client email:', process.env.GS_CLIENT_EMAIL);
     console.log('private key:', process.env.GS_PRIVATE_KEY)
     // initialize the Google Sheet
     try {
