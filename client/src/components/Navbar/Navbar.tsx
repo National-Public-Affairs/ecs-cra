@@ -34,6 +34,16 @@ export default function Navbar() {
             MISSION
           </Link>
           <Link
+            to="/endorsements"
+            className={
+              location.pathname === '/endorsements'
+                ? styles.selected
+                : ''
+            }
+          >
+            ENDORSEMENTS
+          </Link>
+          <Link
             to="/advisors"
             className={
               location.pathname === '/advisors'

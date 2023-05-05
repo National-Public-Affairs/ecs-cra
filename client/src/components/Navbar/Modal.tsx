@@ -1,3 +1,4 @@
+import React from 'react';
 import { animated, useTransition } from '@react-spring/web';
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
@@ -22,6 +23,13 @@ export default function Modal({ open, setOpen }: Props) {
         onClick={() => setOpen(false)}
       >
         MISSION
+      </Link>
+      <Link
+        to="/endorsements"
+        className={styles.modalOption}
+        onClick={() => setOpen(false)}
+      >
+        ENDORSEMENTS
       </Link>
       <Link
         to="/advisors"

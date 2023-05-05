@@ -7,6 +7,7 @@ import FourZeroFour from './components/404/FourZeroFour';
 import Home from './pages/Home/Home';
 import Mission from './pages/Mission/Mission';
 import Advisors from './pages/Advisors/Advisors';
+import Endorsements from './pages/Endorsements/Endorsements';
 import Contact from './pages/Contact/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import Terms from './pages/Terms/Terms';
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/advisors" element={<Advisors />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/endorsements" element={<Endorsements />} />
         <Route path="/mission" element={<Mission />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<Terms />} />
