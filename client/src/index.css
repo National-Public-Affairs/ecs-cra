@@ -98,7 +98,7 @@ button:focus-visible {
 }
 
 ::selection {
-  background: var(--red);
+  background: var(--purple-2);
 }
 
 @media (prefers-color-scheme: light) {
