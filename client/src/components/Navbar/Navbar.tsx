@@ -34,14 +34,14 @@ export default function Navbar() {
             MISSION
           </Link>
           <Link
-            to="/endorsements"
+            to="/candidates"
             className={
-              location.pathname === '/endorsements'
+              location.pathname === '/candidates'
                 ? styles.selected
                 : ''
             }
           >
-            ENDORSEMENTS
+            CANDIDATES
           </Link>
           <Link
             to="/advisors"
