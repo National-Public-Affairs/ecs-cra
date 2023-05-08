@@ -25,13 +25,6 @@ export default function Modal({ open, setOpen }: Props) {
         MISSION
       </Link>
       <Link
-        to="/endorsements"
-        className={styles.modalOption}
-        onClick={() => setOpen(false)}
-      >
-        ENDORSEMENTS
-      </Link>
-      <Link
         to="/advisors"
         className={styles.modalOption}
         onClick={() => setOpen(false)}
