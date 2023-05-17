@@ -1,6 +1,6 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Header from '../../components/Header/Header';
 import styles from './Contact.module.css';
@@ -129,6 +129,15 @@ export default function Contact() {
           && <div role="alert">Opt-in is required</div>}
         <p className={styles.disclaimer}>
           By checking this box, I expressly consent to receive text messages from Elect Common sense. I understand that message and data rates may apply. I understand that I may revoke this consent at any time by texting “STOP” to any mobile message sent from Elect Common Sense. Text JOIN to 83902 to opt in to future traffic.
+          <br />
+          <br />
+          <Link to="/terms-of-service">
+            Terms of Service
+          </Link>
+          <br />
+          <Link to="/privacy-policy">
+            Privacy Policy
+          </Link>
         </p>
 
         {/* message input */}
