@@ -236,6 +236,10 @@ export default function PrivacyPolicy() {
               When we share your Personal Information with third parties to enforce our Terms of Use, to ensure the safety and security of third parties, to protect our rights and property and the rights and property of third parties, to comply with legal process, or in other cases if we believe in good faith that disclosure is required by law.
             </li>
           </ul>
+
+          <p>
+            All above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
+          </p>
         </div>
 
         <div>
