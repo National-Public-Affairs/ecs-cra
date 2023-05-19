@@ -128,7 +128,7 @@ export default function Contact() {
         {errors.optIn?.type === 'required'
           && <div role="alert">Opt-in is required</div>}
         <p className={styles.disclaimer}>
-          By checking this box, I expressly consent to receive text messages from Elect Common sense. I understand that message and data rates may apply. I understand that I may revoke this consent at any time by texting “STOP” to any mobile message sent from Elect Common Sense. Text JOIN to 83902 to opt in to future traffic.
+          By checking this box, I expressly consent to receive text messages which could include alerts, donation requests, voting updates, and other important information from Elect Common Sense. These will be recurring SMS/MMS messages. I understand that message and data rates may apply. I understand that I may revoke this consent at any time by texting “STOP” to any mobile message sent from Elect Common Sense. Text JOIN to 83902 to opt in to message traffic.
           <br />
           <br />
           <Link to="/terms-of-service">
