@@ -40,7 +40,7 @@ export default function Terms() {
           </li>
 
           <li>
-            <span className="bold">MOBILE MESSAGING</span>. If you request to receive updates or other information by mobile phone or text message (the “SMS Service”) through the Sites, you expressly consent to receiving via your mobile device text messages, including text messages (a) sent by an automatic telephone dialing system, (b) that include pre-recorded voice, and/or (c) that include automated voice, in each case from us or a third-party contractor we have retained for their expertise in initiating and transmitting text messages. We do not charge for this SMS Service; however, Msg and data rates may apply. By opting in to this traffic, you consent to receive messages providing alerts, donation requests, voting updates, and other important information. At any time, you may text STOP to cancel or HELP for customer support information.
+            <span className="bold">MOBILE MESSAGING</span>. If you request to receive updates or other information by mobile phone or text message (the “SMS Service”) through the Sites, you expressly consent to receiving via your mobile device recurring SMS/MMS messages, including text messages (a) sent by an automatic telephone dialing system, (b) that include pre-recorded voice, and/or (c) that include automated voice, in each case from us or a third-party contractor we have retained for their expertise in initiating and transmitting text messages.
           </li>
           
           <li>
