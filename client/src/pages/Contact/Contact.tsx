@@ -9,8 +9,8 @@ type FormData = {
   firstName: string;
   lastName: string;
   email: string;
-  zip: number;
-  mobile: number;
+  zip: string;
+  mobile: string;
   optIn: boolean;
   message: string;
 }
@@ -20,10 +20,9 @@ export default function Contact() {
 
   const { register, formState: { errors }, handleSubmit } = useForm<FormData>();
   const onSubmit = async (data: FormData) => {
-    console.log(data);
     const toastId = toast.loading('Submitting...');
     try {
-      const resp = await fetch('/send', {
+      await fetch('/send', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -31,23 +30,12 @@ export default function Contact() {
         },
         body: JSON.stringify(data),
       });
-
-      console.log('response:', resp);
     } catch (e) {
       toast.error(e, { id: toastId });
     }
     toast.success('Submitted successfully', { id: toastId });
     navigate('/');
   };
-
-  // const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>): Promise<any> => {
-  //   event.preventDefault();
-  //   // instantiates a toast notification whose status can be changed
-  //   const toastId = toast.loading('Submitting...');
-  //     // toast.success('Submitted successfully', { id: toastId }); 
-  //     toast.error('You must be opted-in', { id: toastId });
-  //   }
-  // };
 
   return (
     <div className="page">
@@ -101,22 +89,40 @@ export default function Contact() {
         {/* ZIP code input */}
         <label htmlFor="zip">ZIP Code</label>
         <input
-          type="number"
-          {...register('zip', { required: false, maxLength: 5 })}
+          type="text"
+          {...register('zip', {
+            required: false,
+            minLength: 5,
+            maxLength: 5,
+            pattern: /^[0-9]*$/,
+          })}
           aria-invalid={errors.zip ? "true" : "false"} 
         />
+        {errors.zip?.type === 'minLength'
+          && <div role="alert">Length must be 5 characters</div>}
         {errors.zip?.type === 'maxLength'
-          && <div role="alert">Length cannot exceed 5 characters</div>}
+          && <div role="alert">Length must be 5 characters</div>}
+        {errors.zip?.type === 'pattern'
+          && <div role="alert">Must be a valid ZIP code (numbers only)</div>}
 
         {/* mobile phone number input */}
         <label htmlFor="mobile">Mobile</label>
         <input
-          type="number"
-          {...register('mobile', { required: false, maxLength: 10 })}
+          type="text"
+          {...register('mobile', {
+            required: false,
+            minLength: 10,
+            maxLength: 10,
+            pattern: /^[0-9]*$/,
+          })}
           aria-invalid={errors.mobile ? "true" : "false"} 
         />
-        {errors.zip?.type === 'maxLength'
-          && <div role="alert">Length cannot exceed 10 characters</div>}
+        {errors.mobile?.type === 'minLength'
+          && <div role="alert">Length must be at least 10 characters</div>}
+        {errors.mobile?.type === 'maxLength'
+          && <div role="alert">Length cannot exceed 12 characters</div>}
+        {errors.mobile?.type === 'pattern'
+          && <div role="alert">Must be a valid phone number (numbers only)</div>}
 
         {/* opt-in input */}
         <label htmlFor="optIn">Opt-In</label>
