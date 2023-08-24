@@ -15,14 +15,21 @@ class InteractWithGoogleSheet {
     // set current sheet
     const sheet = doc.sheetsByIndex[0];
     // add row
-    await sheet.addRow({
-      firstName,
-      lastName,
-      email,
-      zip,
-      mobile,
-      message,
-    });
+    try {
+      await sheet.addRow({
+        firstName,
+        lastName,
+        email,
+        zip,
+        mobile,
+        message,
+      });
+      return true;
+    }
+
+    catch {
+      return false;
+    }
   }
 }
 
