@@ -44,7 +44,7 @@ export default function Navbar() {
             ADVISORS
           </Link>
           {/* <a
-            href="https://secure.winred.com/elect-common-sense/contact-us"
+            href="https://secure.winred.com/elect-common-sense/website?utm_medium=website"
           >
             CONTACT
           </a> */}
