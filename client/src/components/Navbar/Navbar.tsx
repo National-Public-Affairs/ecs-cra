@@ -62,7 +62,7 @@ export default function Navbar() {
 
         <div className={styles.right}>
           <a
-            href="https://secure.winred.com/elect-common-sense/donate-today"
+            href="https://secure.winred.com/elect-common-sense/website?utm_medium=website"
             className={styles.link}
           >
             DONATE
@@ -90,7 +90,7 @@ export default function Navbar() {
         <Modal open={open} setOpen={setOpen} />
           
         <a
-          href="https://secure.winred.com/elect-common-sense/donate-today"
+          href="https://secure.winred.com/elect-common-sense/website?utm_medium=website"
           className={styles.link}
         >
           DONATE
