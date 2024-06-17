@@ -3,6 +3,26 @@
   text-align: center;
 }
 
+.App {
+  width: 100vw;
+  height: 100dvh;
+  background-image: radial-gradient(circle,rgba(58,51,147,.75) 35%,rgba(29,25,93,.75) 100%);
+  display: grid;
+  grid-template: 100% / 100%;
+}
+
+.logo-wrapper {
+  justify-self: center;
+  align-self: center;
+  width: 20vw;
+  min-width: 200px;
+}
+
+.logo-wrapper > img {
+  width: 100%;
+  height: auto;
+}
+
 .page {
   min-height: 100vh;
   margin: 10vh 0 0 0;
