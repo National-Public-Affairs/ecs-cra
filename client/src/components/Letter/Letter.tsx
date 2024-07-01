@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from '../../assets/logo.png';
-import headshot from '../../assets/bill-headshot.jpg';
 import styles from './Letter.module.css';
 
 export default function Letter() {
@@ -35,7 +34,7 @@ export default function Letter() {
       <p>
         That's why we formed&nbsp;
         <span className="bold italic">Elect Common Sense</span>.
-        As the Honorary Chairman, I am proud to be guiding&nbsp;
+        We are proud to be guiding&nbsp;
         <span className="italic">Elect Common Sense</span>&nbsp;
         as we rewrite the rules of engagement for fighting and winning in New Jersey.
       </p>
@@ -44,20 +43,9 @@ export default function Letter() {
 
       <p>
         Join Us,
-      </p>
-      <img
-        src={headshot}
-        alt="Bill Spadea–Elect Common Sense"
-        className={styles.headshot}
-      />
-      <p>
-        Bill Spadea
-        <br />
-        Honorary Chairman
         <br />
         Elect Common Sense
       </p>
-
       <br />
       <br />
       <br />

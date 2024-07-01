@@ -23,6 +23,7 @@ export default function Navbar() {
           >
             HOME
           </Link>
+
           <Link
             to="/mission"
             className={
@@ -33,21 +34,7 @@ export default function Navbar() {
           >
             MISSION
           </Link>
-          <Link
-            to="/advisors"
-            className={
-              location.pathname === '/advisors'
-                ? styles.selected
-                : ''
-            }
-          >
-            ADVISORS
-          </Link>
-          {/* <a
-            href="https://secure.winred.com/elect-common-sense/website?utm_medium=website"
-          >
-            CONTACT
-          </a> */}
+
           <Link
             to="/contact"
             className={

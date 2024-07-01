@@ -1,35 +1,30 @@
 import React from 'react';
-// import { Routes, Route } from 'react-router-dom';
-// import { Toaster } from 'react-hot-toast';
-// import Navbar from './components/Navbar/Navbar';
-// import Footer from './components/Footer/Footer';
-// import FourZeroFour from './components/404/FourZeroFour';
-// import Home from './pages/Home/Home';
-// import Mission from './pages/Mission/Mission';
-// import Advisors from './pages/Advisors/Advisors';
-// import Contact from './pages/Contact/Contact';
-// import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
-// import Terms from './pages/Terms/Terms';
+import { Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import FourZeroFour from './components/404/FourZeroFour';
+import Home from './pages/Home/Home';
+import Mission from './pages/Mission/Mission';
+import Contact from './pages/Contact/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
+import Terms from './pages/Terms/Terms';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <div className="logo-wrapper">
-        <img src="/logo.png" alt="Elect Common Sense Logo" />
-      </div>
-      {/* <Toaster />
+      <Toaster />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/advisors" element={<Advisors />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/mission" element={<Mission />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<Terms />} />
         <Route path="*" element={<FourZeroFour />} />
       </Routes>
-      <Footer /> */}
+      <Footer />
     </div>
   );
 }
