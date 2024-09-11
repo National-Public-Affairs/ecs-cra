@@ -1,12 +1,118 @@
 .wrapper {
-  padding: 5vh 0;
+  padding: 2rem 0;
   background: url(../../assets/nj-bridge.jpg), radial-gradient(circle, rgba(58,51,147,1) 35%, rgba(29,25,93,1) 100%);
   background-size: cover;
   background-blend-mode: overlay;
 }
 
+.headingWrapper {
+  background-color: rgba(29, 25, 93, 0.4);
+  background-image: linear-gradient(180deg, rgba(29, 25, 93, 0.4), rgba(29, 25, 93, 1));
+  display: grid;
+  grid-template: 100% / 100%;
+  text-align: center;
+}
+
+.heading {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+  align-self: center;
+  padding: 3rem 5rem;
+}
+
+.heading h1 {
+  margin: 0 0 2rem 0;
+  translate: 0 10px;
+  text-wrap: balance;
+  font-size: 4rem;
+  color: white;
+  line-height: 3rem;
+}
+
+.subheadingWrapper {
+  width: 70%;
+  margin: 1rem auto 2rem auto;
+  padding: 1.5rem;
+  background-color: var(--purple-4);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  text-align: start;
+}
+
+.subheading {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--purple-2);
+}
+
+.cta {
+  margin: 1rem 0 0 0;
+  font-size: 1.25rem;
+  color: white;
+}
+
+.explanation {
+  width: 50%;
+  margin: 2.5rem auto 0;
+  font-size: 1.1rem;
+  line-height: 1.75rem;
+  color: var(--purple-1);
+}
+
 .logo {
-  width: 70vw;
-  max-width: 600px;
-  margin: auto;
+  width: 60vw;
+  max-width: 400px;
+  margin: 5rem auto;
+}
+
+/* general mobile styling */
+@media only screen and (max-width: 900px) and (min-height: 300px) {
+  .wrapper {
+    padding: 1rem 0;
+    background: url(../../assets/nj-bridge.jpg), radial-gradient(circle, rgba(58,51,147,1) 35%, rgba(29,25,93,1) 100%);
+    background-size: cover;
+    background-blend-mode: overlay;
+  }
+
+  .logo {
+    margin: 2.5rem auto;
+  }
+
+  .heading {
+    padding: 1.5rem 1rem;
+  }
+
+  .heading h1 {
+    margin: 0 0 1rem 0;
+    translate: 0 10px;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+
+  .subheadingWrapper {
+    width: 90%;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .subheading {
+    font-size: 1.5rem;
+  }
+
+  .cta {
+    margin: 1rem 0;
+    font-size: 1rem;
+  }
+
+  .explanation {
+    width: 90%;
+    margin: 1rem auto 0;
+    font-size: 1rem;
+    text-align: left;
+  }
 }

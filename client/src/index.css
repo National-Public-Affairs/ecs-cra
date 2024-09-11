@@ -46,9 +46,17 @@ body {
   min-width: 320px;
 }
 
+h1 {
+  font-family: "alternate-gothic-no-1-d", sans-serif;
+  font-size: 4rem;
+  line-height: 4.25rem;
+  cursor: default;
+  text-transform: uppercase;
+}
+
 p {
-  font-size: clamp(12px, 1.5vmax, 26px);
-  line-height: clamp(16px, 1.9vmax, 32px);
+  font-size: 1.25rem;
+  line-height: 2rem;
   text-align: left;
   font-family: "interstate", sans-serif;
   font-weight: 500;
@@ -79,50 +87,43 @@ ol > li > ul > li {
 }
 
 button {
-  border-radius: 8px;
+  background-color: var(--red);
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 0.5rem 2rem;
+  font-family: "alternate-gothic-no-1-d", sans-serif;
+  font-size: 2.25rem;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  text-transform: uppercase;
+  color: white;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--purple-2);
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px auto white;
 }
 
 ::selection {
   background: var(--purple-2);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
 /* general mobile styling */
 @media only screen and (max-width: 900px) and (min-height: 300px) {
   p {
-    font-size: clamp(12px, 2.2vmax, 26px);
-    line-height: clamp(16px, 3vmax, 32px);
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   li {
     font-size: clamp(11px, 2.2vmax, 22px);
     line-height: clamp(13px, 3vmax, 32px);
+  }
+  
+  button {
+    padding: 0.25rem 3.5rem;
+    font-size: 1.75rem;
   }
 }
