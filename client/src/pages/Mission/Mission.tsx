@@ -1,117 +1,63 @@
 import React from 'react';
-import { useTrail, animated } from '@react-spring/web';
+
 import Header from '../../components/Header/Header';
-import Tile from '../../components/Tile/Tile';
-import Bank from '../../assets/SVG/Bank';
-import School from '../../assets/SVG/School';
-import BallotBox from '../../assets/SVG/BallotBox';
-import Megaphone from '../../assets/SVG/Megaphone';
-import PiggyBank from '../../assets/SVG/PiggyBank';
-import NJ from '../../assets/SVG/NJ';
-import Ballot from '../../assets/SVG/Ballot';
-import People from '../../assets/SVG/People';
+
 import styles from './Mission.module.css';
-
-const firstSectionData = [
-  <Tile
-    icon={<PiggyBank fillColor="#3a3393" />}
-    text="Allow Trenton to overtax us and over-regulate us"
-  />,
-  <Tile
-    icon={<School fillColor="#3a3393" />}
-    text="Spread woke culture in our schools and strip away our rights"
-  />,
-  <Tile
-    icon={<Bank fillColor="#3a3393" />}
-    text="Settle for the same failed insider politicians"
-  />,
-  <Tile
-    icon={<BallotBox fillColor="#3a3393" />}
-    text="Accept failure at the ballot box every November"
-  />,
-];
-
-const secondSectionData = [
-  <Tile
-    icon={<NJ fillColor="#ef0b2e" />}
-    text="Engage outsiders ready to take our state back"
-  />,
-  <Tile
-    icon={<Megaphone fillColor="#ef0b2e" />}
-    text="Amplify our voices to make sure the insider politicians hear us"
-  />,
-  <Tile
-    icon={<People fillColor="#ef0b2e" />}
-    text="End 'business as usual' in Trenton and return power to the people"
-  />,
-  <Tile
-    icon={<Ballot fillColor="#ef0b2e" />}
-    text="Elect Common Sense"
-  />,
-];
-
-function Content() {
-  const trail = useTrail(4, {
-    config: { mass: 1, tension: 150, friction: 100, duration: 250 },
-    from: {
-      opacity: 0,
-      transform: 'scale(0.5)',
-    },
-    to: {
-      opacity: 1,
-      transform: 'scale(1)',
-    },
-  });
-
-  return (
-    <div className={styles.wrapper}>
-      <p className={`${styles.purpleText} bold`}>
-        With your help, New Jersey will no longer:
-      </p>
-
-     <div className={styles.tileGroup}>
-       {
-        trail.map((props, idx) => (
-          <animated.div
-            className={styles.item}
-            style={{ ...props, border: '5px solid #3a3393' }}
-          >
-            {firstSectionData[idx]}
-          </animated.div>
-        ))
-       }
-     </div>
-
-      <p className={`${styles.purpleText} bold`}>
-        Together, we will:
-      </p>
-
-      <div className={styles.tileGroup}>
-        {
-          trail.map((props, idx) => (
-            <animated.div
-              className={styles.item}
-              style={{ ...props, border: '5px solid #ef0b2e' }}
-            >
-              {secondSectionData[idx]}
-            </animated.div>
-        ))
-        }
-      </div>
-    </div>
-  );
-}
 
 export default function Mission() {
   return (
     <div className="page">
       <Header
-        redText="OUR"
-        whiteText="MISSION"
-        children={[]}
+        whiteText="The Mission"
+        children={[
+          <div className={styles.slogan}>
+            Time for New Leadership. It's just Common Sense.
+          </div>
+        ]}
       />
+      <div className={styles.content}>
+        <div className={styles.mission}>
+          Elect Common Sense is a PAC that provides grassroots support and financial backing to elect like-minded, Common Sense candidates in New Jersey from School Board to Governor.
+        </div>
+        <div className={styles.list}>
+          <div>Together, we will:</div>
+          <ol>
+            <li>
+              <span>Identify </span>
+              Common Sense Candidates for every office from School Board to Governor.
+            </li>
+            <li>
+              <span>Empower </span>
+              Common Sense Candidates to WIN with our grassroots support and financial backing.
+            </li>
+            <li>
+              <span>Elect </span>
+              Common Sense Candidates to start turning New Jersey back to common sense.
+            </li>
+          </ol>
+        </div>
 
-      <Content />
+        <div className={styles.list}>
+          <div>With your help, New Jersey will no longer:</div>
+          <ul>
+            <li>
+              Allow Trenton to overtax us and over-regulate us
+            </li>
+            <li>
+              Spread woke culture in our schools and strip away parental rights
+            </li>
+            <li>
+              Settle for the same failed insider politicians
+            </li>
+            <li>
+              Accept failure at the ballot box every November
+            </li>
+          </ul>
+        </div>
+        <div className={`${styles.mission} ${styles.second}`}>
+          Taking back New Jersey from Left Wing Lunacy starts with us – the Common Sense Majority.
+        </div>
+      </div>
     </div>
   );
 }
