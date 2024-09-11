@@ -20,7 +20,7 @@
   right: 0;
   bottom: 0;
   content: ' ';
-  background: radial-gradient(circle, rgba(58,51,147,0.75) 35%, rgba(29,25,93,0.75) 100%);
+  background: var(--gradient-primary);
 }
 
 .heading {

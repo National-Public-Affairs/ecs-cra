@@ -1,13 +1,15 @@
 .wrapper {
+  min-height: 100vh;
+  margin: 10vh 0 0 0;
   padding: 2rem 0;
-  background: url(../../assets/nj-bridge.jpg), radial-gradient(circle, rgba(58,51,147,1) 35%, rgba(29,25,93,1) 100%);
+  background-image: url(../../assets/nj-bridge.jpg), radial-gradient(circle, rgba(58,51,147,1) 35%, rgba(29,25,93,1) 100%);
   background-size: cover;
   background-blend-mode: overlay;
 }
 
 .headingWrapper {
   background-color: rgba(29, 25, 93, 0.4);
-  background-image: linear-gradient(180deg, rgba(29, 25, 93, 0.4), rgba(29, 25, 93, 1));
+  background-image: var(--gradient-secondary);
   display: grid;
   grid-template: 100% / 100%;
   text-align: center;
