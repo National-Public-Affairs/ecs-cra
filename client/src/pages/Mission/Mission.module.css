@@ -1,51 +1,49 @@
-.wrapper {
-  width: 80%;
-  min-width: 33vw;
-  max-width: 1000px;
-  margin: 5vh auto;
-  color: var(--purple-4);
+.slogan {
+  color: var(--purple-1);
 }
 
-.tileGroup {
-  margin: 3vh auto 5vh auto;
-  display: flex;
-  flex-flow: row nowrap;
-  gap: 1rem;
+.content {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+  color: white;
 }
 
-.item {
-  flex: 1 1 0;
-  width: 0;
-  min-width: 10vw;
-  padding: 1rem;
-  border-radius: 1rem;
-  box-shadow:
-    1px 0.4px 2.2px rgba(0, 0, 0, 0.014),
-    2.5px 0.9px 5.3px rgba(0, 0, 0, 0.02),
-    4.6px 1.8px 10px rgba(0, 0, 0, 0.025),
-    8.3px 3.1px 17.9px rgba(0, 0, 0, 0.03),
-    15.5px 5.8px 33.4px rgba(0, 0, 0, 0.036),
-    37px 14px 80px rgba(0, 0, 0, 0.05)
-  ;
-  cursor: default;
-  transition: all 150ms ease-in-out;
+.mission {
+  padding: 2.5rem 5rem;
+  background-color: var(--purple-4);
+  font-size: 1.25rem;
+  line-height: 2rem;
 }
 
-.purpleText {
-  color: var(--purple-3);
+.mission.second {
+  margin-top: 2.5rem;
+  background-color: var(--purple-3);
+}
+
+.list {
+  margin-top: 5rem;
 }
 
 /* general mobile styling */
 @media only screen and (max-width: 900px) and (min-height: 300px) {
-  .wrapper {
-    width: 90%;
+  .slogan {
+    font-size: 1.75rem;
+    line-height: 2rem;
   }
 
-  .tileGroup {
-    flex-flow: column nowrap;
+  .content {
+    padding: 1rem;
   }
 
-  .item {
-    width: auto;
+  .mission {
+    padding: 1rem;
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+
+  .list {
+    margin-top: 2.5rem;
   }
 }
