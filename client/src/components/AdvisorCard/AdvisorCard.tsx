@@ -9,7 +9,6 @@ type Props = {
 }
 
 export default function AdvisorCard({ img, name, title, subtitle }: Props) {
-  console.log(img)
   return (
     <div className={styles.wrapper}>
       <div
