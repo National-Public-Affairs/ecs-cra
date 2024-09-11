@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Logo() {
   return (
-    <svg width="auto" height="auto" viewBox="0 0 1056 442" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="100%" height="auto" viewBox="0 0 1056 442" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M1012.88 374.426L1016.63 358H1023V391H1018.45V367.697L1014.02 391H1011.74L1007.31 367.697V391H1002.87V358H1009.12L1012.88 374.426Z" fill="#3A3292" />
       <path d="M988.947 391V362.304H984V358H999.411V362.304H994.236V391H988.947Z" fill="#3A3292" />
       <rect y="124" width="1023" height="220" fill="#3A3292" />
