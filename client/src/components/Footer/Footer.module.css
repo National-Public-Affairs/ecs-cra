@@ -1,7 +1,8 @@
 .wrapper {
-  padding: 3vh 20%;
+  padding: 5rem 20%;
   border-top: 2px solid var(--purple-3);
-  background-color: var(--purple-2);
+  background-color: var(--purple-4);
+  color: var(--purple-2);
 }
 
 .logo {
@@ -22,9 +23,17 @@
   gap: 1rem;
 }
 
+.linksWrapper a {
+  color: var(--purple-1);
+}
+
+.linksWrapper a:hover {
+  text-decoration: underline;
+}
+
 /* general mobile styling */
 @media only screen and (max-width: 900px) and (min-height: 300px) {
   .wrapper {
-    padding: 3vh 10%;
+    padding: 5rem 1rem;
   }
 }
