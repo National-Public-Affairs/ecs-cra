@@ -25,11 +25,11 @@ export default function Modal({ open, setOpen }: Props) {
         MISSION
       </Link>
       <Link
-        to="/advisors"
+        to="/take-action"
         className={styles.modalOption}
         onClick={() => setOpen(false)}
       >
-        ADVISORS
+        TAKE ACTION
       </Link>
       {/* use /contact page for verification; reinstall this page once verification is complete */}
       {/* <a

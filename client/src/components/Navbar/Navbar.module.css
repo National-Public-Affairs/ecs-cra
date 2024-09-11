@@ -16,15 +16,11 @@
 
 .wrapper {
   padding: 0 10%;
-  display: grid;
-  grid-template: 100% / 60% 20%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .left {
-  grid-column: 1;
-  grid-row: 1;
-  justify-self: stretch;
-  align-self: stretch;
   width: 75%;
   height: 100%;
   display: flex;
