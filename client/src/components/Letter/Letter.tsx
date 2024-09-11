@@ -1,42 +1,40 @@
 import React from 'react';
-import logo from '../../assets/logo.png';
+import Logo from '../../assets/SVG/Logo';
+import nader from '../../assets/Elizabeth-Nader.jpg';
+
 import styles from './Letter.module.css';
 
 export default function Letter() {
   return (
     <div className={styles.wrapper}>
-      <img
-        src={logo}
-        alt="Elect Common Sense – NJ"
-        className={styles.logo}
-      />
-      <p className="bold">
-        Friend,
+      <div className={styles.heading}>
+        <img
+          src={nader}
+          alt="Elizabeth Nader headshot"
+        />
+        <p className="bold">
+          A letter from our President,
+        </p>
+      </div>
+
+      <p>Hey Common Sense New Jerseyan!</p>
+
+      <p>Welcome! This is the place you’ve been waiting for.</p>
+
+      <p>
+        <span className='bold'>Common sense has been missing from Trenton – and almost every elected office across New Jersey – for far too long.</span> You know it, I know it. We see it in the out of control tax-and-spend mindset, broken and dysfunctional agencies, rising crime, crackdowns on freedom, and indoctrination of our children. We feel like we’re shouting “that’s crazy” into a void on a daily basis. Enough!
       </p>
 
       <p>
-        Common sense: it's been in short supply in Trenton for far too long.
+        Liberal lunacy has become 'business as usual' from our State Capitol to our school boards. New Jerseyans have been beaten down to accept the mess the insiders, special interests and failed politicians have created, and all along, we’ve been the majority! Now, we’re rising up, taking back the megaphone, and acting like the powerful majority coalition that we are. 
       </p>
 
       <p>
-        In it's place, years of 'business as usual' in our State Capitol have beaten New Jerseyans down into a culture of accepting the mess the insiders, special interests and failed politicians have created.
+        They all think we're powerless to challenge Trenton, to fight for change and to bring common sense back to New Jersey. They’re used to getting away with their lunacy unchecked. Well, they're wrong. Those days are over. 
       </p>
 
       <p>
-        They all think we're powerless to challenge Trenton, to fight for change and to bring common sense back to New Jersey.&nbsp;
-        <span className="bold">Well, they're wrong.</span>
-      </p>
-
-      <p>
-        Like you, we're done accepting the insiders' failure. And like you, we're ready to fight.
-      </p>
-
-      <p>
-        That's why we formed&nbsp;
-        <span className="bold italic">Elect Common Sense</span>.
-        We are proud to be guiding&nbsp;
-        <span className="italic">Elect Common Sense</span>&nbsp;
-        as we rewrite the rules of engagement for fighting and winning in New Jersey.
+        Like you, we're done accepting the insiders' failure, and like you, we're ready to fight. That's why we formed Elect Common Sense. Together, we’re going to identify, empower and elect like-minded, Common Sense candidates from top to bottom. That’s how we’ll start turning this state around to reflect us, the Common Sense Majority.
       </p>
 
       <br />
@@ -44,7 +42,13 @@ export default function Letter() {
       <p>
         Join Us,
         <br />
-        Elect Common Sense
+        <span className='bold'>Elizabeth Nader</span>
+        <br />
+        Chair
+        <br />
+        <div className={styles.logo}>
+          <Logo />
+        </div>
       </p>
       <br />
       <br />
