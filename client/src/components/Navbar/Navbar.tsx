@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Squash as Hamburger } from 'hamburger-react';
 import Modal from './Modal';
+import Logo from '../../assets/SVG/Logo';
+
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -21,7 +23,9 @@ export default function Navbar() {
                 : ''
             }
           >
-            HOME
+            <div className={styles.logo}>
+              <Logo />
+            </div>
           </Link>
 
           <Link
@@ -78,7 +82,9 @@ export default function Navbar() {
               : ''
           }
         >
-          HOME
+          <div className={styles.logo}>
+            <Logo />
+          </div>
         </Link>
 
         {/* mobile hamburger */}
