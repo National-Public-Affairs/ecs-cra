@@ -18,12 +18,22 @@
 }
 
 .mission.second {
-  margin-top: 2.5rem;
+  margin-top: 5rem;
   background-color: var(--purple-3);
 }
 
 .list {
   margin-top: 5rem;
+}
+
+.list > div {
+  text-align: start;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.list ol, .list ul {
+  color: var(--purple-1);
 }
 
 /* general mobile styling */
@@ -43,7 +53,16 @@
     line-height: 1.75rem;
   }
 
+  .mission.second {
+    margin-top: 2.5rem;
+  }
+
   .list {
     margin-top: 2.5rem;
+  }
+
+  .list > div {
+    font-size: 1.25rem;
+    text-wrap: balance;
   }
 }
