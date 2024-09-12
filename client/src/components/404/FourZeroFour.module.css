@@ -9,9 +9,22 @@
   grid-row: 1;
   justify-self: center;
   align-self: center;
+  padding: 5rem;
+  background-image: var(--gradient-primary);
   text-align: center;
-  font-size: 4vmin;
-  color: var(--red);
+  color: white;
+}
+
+.content > h1 {
+  margin: 0 0 1rem 0;
+  font-size: 6rem;
+  line-height: 5rem;
+}
+
+.content > h6 {
+  margin: 0 0 2.5rem 0;
+  font-size: 1.5rem;
+  color: var(--purple-2);
 }
 
 /* general mobile styling */
