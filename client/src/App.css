@@ -15,6 +15,21 @@
   margin: 6rem auto;
 }
 
+.subheading {
+  font-family: "interstate";
+  font-weight: 500;
+  font-size: 1.75rem;
+  color: var(--purple-1);
+}
+
+.page-content {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+  color: white;
+}
+
 .bold {
   font-weight: 800;
   font-style: normal;
@@ -27,9 +42,20 @@
 .checkbox-wrapper {
   margin: 0.5rem 0 1.5rem 0;
   padding: 1rem;
-  border: 2px solid rgb(58, 51, 147);
-  border-radius: 0.75rem;
-  display: inline-block;
+  border-radius: 3px;
+  background-color: var(--purple-3);
+  box-shadow: rgba(0, 0, 0, 0.16) 0 10px 36px 0, rgba(0, 0, 0, 0.06) 0 0 0 1px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: start;
+  align-items: start;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.checkbox-wrapper > label {
+  margin-top: 0;
+  cursor: pointer;
 }
 
 /* general mobile styling */
@@ -37,5 +63,10 @@
   .text-content {
     margin: 1rem 0;
     padding: 1rem;
+  }
+
+  .subheading {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
   }
 }

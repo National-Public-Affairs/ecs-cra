@@ -1,5 +1,28 @@
+.wrapper label:first-of-type {
+  margin-top: 0;
+}
+
+.wrapper > a[href='#'] {
+  display: inline-block;
+  margin: 1rem auto 0 auto;
+  text-align: center;
+  text-decoration: underline;
+}
+
 .disclaimer {
   font-size: 0.8rem;
   line-height: 1rem;
   color: var(--purple-2);
+}
+
+.slogan {
+  font-family: "interstate";
+  font-weight: 500;
+  font-size: 1.75rem;
+  color: var(--purple-1);
+}
+
+/* general mobile styling */
+@media only screen and (max-width: 900px) and (min-height: 300px) {
+  
 }

@@ -40,7 +40,7 @@ a {
   cursor: pointer;
 }
 a:hover {
-  color: var(--purple-1);
+  color: var(--purple-2);
 }
 
 a:active {
@@ -81,7 +81,6 @@ p {
   font-family: "interstate", sans-serif;
   font-weight: 500;
   font-style: normal;
-  color: white;
   cursor: default;
 }
 
@@ -104,6 +103,10 @@ ol > li {
 
 ol > li > ul > li {
   margin-top: 1rem;
+}
+
+ul span, ol span {
+  font-weight: 700;
 }
 
 button {
@@ -132,12 +135,13 @@ button:focus-visible {
 
 form {
   width: 80%;
-  max-width: 400px;
+  max-width: 600px;
   min-height: 360px;
-  margin: 10vh auto;
-  padding: 2rem;
-  border: 5px solid rgb(58, 51, 147);
-  border-radius: 1rem;
+  margin:7.5rem auto 10rem auto;
+  padding: 4rem 2.5rem;
+  background-color: var(--purple-4);
+  background-image: var(--gradient-primary);
+  border-radius: 3px;
   box-shadow: 
     1px 0.4px 2.2px rgba(0, 0, 0, 0.014), 
     2.5px 0.9px 5.3px rgba(0, 0, 0, 0.02), 
@@ -151,11 +155,15 @@ form {
 
 label {
   display: block;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   font-family: Interstate;
   font-size: 1.2rem;
-  color: var(--purple-3);
+  color: white;
   text-align: left;
+}
+
+label:hover {
+  box-shadow: 0 0 0 1.5px var(--color-red-primary);
 }
 
 input, textarea {
@@ -163,26 +171,40 @@ input, textarea {
   margin: 0.5rem 0 0 0;
   padding: 1rem;
   border: 2px solid rgb(58, 51, 147);
-  border-radius: 0.75rem;
-  background-color: white;
+  border-radius: 3px;
+  background-color: var(--purple-1);
   font-family: Interstate;
   font-size: 1.2rem;
-  color: var(--purple-3);
+  color: var(--purple-4);
   transition: all 150ms ease-in-out;
 }
 
-input[type="submit"]:hover {
+input[type='checkbox'] {
+  width: 25px;
+  height: 25px;
+  margin: 0;
+}
+
+input[type='checkbox']:focus {
+  box-shadow: 0 0 0 1.5px var(--purple-1);
+}
+
+input[type='submit'] {
   background-color: var(--purple-2);
+}
+
+input[type="submit"]:hover {
+  background-color: var(--purple-3);
   color: white;
 }
 
 input[type="submit"]:active {
-  background-color: var(--purple-3);
+  background-color: var(--purple-4);
 }
 
 textarea:focus, input:focus{
   outline: none;
-  border: 3px solid var(--purple-2);
+  box-shadow: 0 0 0 1.5px var(--purple-1);
 }
 
 div[role="alert"] {
@@ -204,5 +226,22 @@ input[type="checkbox"] {
   button {
     padding: 0.25rem 3.5rem;
     font-size: 1.75rem;
+  }
+
+  form {
+    width: 90%;
+    margin:2.5rem auto 10rem auto;
+    padding: 2.5rem 1rem;
+  }
+
+  label {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+
+  input, textarea {
+    margin: 0.25rem 0 0 0;
+    padding: 0.75rem;
+    font-size: 1rem;
   }
 }

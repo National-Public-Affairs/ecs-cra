@@ -43,6 +43,11 @@
   width: 125px;
 }
 
+.button {
+  padding: 0.5rem 1.75rem;
+  font-size: 1.75rem;
+}
+
 .selected {
   color: var(--purple-2);
 }
@@ -90,5 +95,10 @@
 
   .logo {
     width: 90px;
+  }
+
+  .button {
+    padding: 0.25rem 0.5rem;
+    font-size: 1.75rem;
   }
 }

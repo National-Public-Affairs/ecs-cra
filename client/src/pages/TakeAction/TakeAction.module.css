@@ -1,0 +1,23 @@
+.list {
+  color: var(--purple-1);
+}
+
+.list span {
+  color: white;
+}
+
+.cta {
+  padding: 2.5rem 5rem;
+  background-color: var(--purple-4);
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
+.cta > div {
+  margin-bottom: 2.5rem;
+}
+
+.divider {
+  width: 100%;
+  height: 2rem;
+}
