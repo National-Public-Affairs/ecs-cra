@@ -10,12 +10,12 @@ export default function Mission() {
       <Header
         whiteText="The Mission"
         children={[
-          <div className={styles.slogan}>
+          <div className='subheading'>
             Time for New Leadership. It's just Common Sense.
           </div>
         ]}
       />
-      <div className={styles.content}>
+      <div className='page-content'>
         <div className={styles.mission}>
           Elect Common Sense is a PAC that provides grassroots support and financial backing to elect like-minded, Common Sense candidates in New Jersey from School Board to Governor.
         </div>
