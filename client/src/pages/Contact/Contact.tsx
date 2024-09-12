@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+
 import Header from '../../components/Header/Header';
+
 import styles from './Contact.module.css';
 
 type FormData = {
@@ -40,9 +43,13 @@ export default function Contact() {
   return (
     <div className="page">
       <Header
-        redText="CONTACT"
-        whiteText=""
-        children={[]}
+        redText=""
+        whiteText="Contact Us"
+        children={[
+          <div className='subheading'>
+            Let's talk Common Sense
+          </div>
+        ]}
       />
 
       <form className={styles.wrapper} onSubmit={handleSubmit(onSubmit)}>
@@ -125,12 +132,15 @@ export default function Contact() {
           && <div role="alert">Must be a valid phone number (numbers only)</div>}
 
         {/* opt-in input */}
-        <label htmlFor="optIn">Opt-In</label>
-        <input
-          type="checkbox"
-          {...register('optIn', { required: true })}
-          aria-invalid={errors.optIn ? "true" : "false"} 
-        />
+        <div className='checkbox-wrapper'>
+          <input
+            id='optIn'
+            type="checkbox"
+            {...register('optIn', { required: true })}
+            aria-invalid={errors.optIn ? "true" : "false"}
+          />
+          <label htmlFor="optIn">Opt-In</label>
+        </div>
         {errors.optIn?.type === 'required'
           && <div role="alert">Opt-in is required</div>}
         <p className={styles.disclaimer}>
@@ -159,6 +169,7 @@ export default function Contact() {
         <input
           type="submit"
         />
+        <a href='#'>Back to top</a>
       </form>
     </div>
   );
