@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
 
       <div className="text-content">
         <p>
-          Last modified and effective on 04/25/2023.
+          Last modified and effective on 09/12/2024.
         </p>
 
         <div>

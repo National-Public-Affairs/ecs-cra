@@ -11,7 +11,7 @@ export default function Terms() {
       />
       <div className="text-content">
         <p>
-          Last modified on 04/18/2023.
+          Last modified on 09/12/2024.
         </p>
 
         <p>
