@@ -67,7 +67,7 @@ export default function Navbar() {
             href="https://secure.winred.com/elect-common-sense/website?utm_medium=website"
             className={styles.link}
           >
-            DONATE
+            <button className={styles.button}>Donate</button>
           </a>
         </div>
       </nav>
@@ -97,7 +97,7 @@ export default function Navbar() {
           href="https://secure.winred.com/elect-common-sense/website?utm_medium=website"
           className={styles.link}
         >
-          DONATE
+          <button className={styles.button}>Donate</button>
         </a>
       </nav>
     </>
