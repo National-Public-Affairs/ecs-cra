@@ -38,7 +38,6 @@ export default function TakeAction() {
     handleSubmit,
     watch,
   } = useForm<FormData>();
-  // https://echobind.com/post/conditionally-render-fields-using-react-hook-form
   const watchCheckboxes = watch([
     'typeCandidateReferral', // 0
     'typeVolunteering', // 1
