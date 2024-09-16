@@ -45,12 +45,22 @@ class InteractWithGoogleSheet {
     // add row
     try {
       await sheet.addRow({
+        typeCandidateReferral,
+        typeVolunteering,
+        typeGrassroots,
         firstName,
         lastName,
+        county,
         email,
         zip,
         mobile,
         message,
+        doorKnocking,
+        phoneBanking,
+        writingPostcards,
+        literatureDrops,
+        signPlacement,
+        hostingAnEvent,
       });
       return true;
     } catch {
