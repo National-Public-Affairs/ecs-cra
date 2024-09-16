@@ -17,7 +17,7 @@ type FormData = {
   county: string;
   email: string;
   zip: string;
-  mobile: number;
+  mobile: string;
   message?: string;
   doorKnocking: boolean;
   phoneBanking: boolean;
@@ -336,7 +336,7 @@ export default function TakeAction() {
                 <input
                   id="sign-placement"
                   type="checkbox"
-                  {...register('writingPostcards')}
+                  {...register('signPlacement')}
                 />
                 <label htmlFor="sign-placement">Sign placement</label>
               </div>
