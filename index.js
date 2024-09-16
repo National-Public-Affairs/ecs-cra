@@ -23,6 +23,7 @@ app.get('/*', (req, res) => {
 // 'Take Action' form submissions
 app.post('/submit-action', async (req, res) => {
   // attempt to submit to Google Sheets
+  console.log('TAKE ACTION REQ BODY', req.body);
   try {
     const sheetSubmission = await googleSheet.writeToSheetTwo(req.body);
 
