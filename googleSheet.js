@@ -31,7 +31,24 @@ class InteractWithGoogleSheet {
   };
 
   static writeToSheetTwo = async (formData) => {
-    const { firstName, lastName, email, zip, mobile, message } = formData;
+    const {
+      typeCandidateReferral,
+      typeVolunteering,
+      typeGrassroots,
+      firstName,
+      lastName,
+      county,
+      email,
+      zip,
+      mobile,
+      message,
+      doorKnocking,
+      phoneBanking,
+      writingPostcards,
+      literatureDrops,
+      signPlacement,
+      hostingAnEvent,
+    } = formData;
     // initialize the Google Sheet
     const doc = new GoogleSpreadsheet(process.env.GS_SPREADSHEET_ID_2);
     // initialize auth to Google Sheet
