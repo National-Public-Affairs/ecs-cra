@@ -25,13 +25,13 @@ export default function Modal({ open, setOpen }: Props) {
       >
         MISSION
       </Link>
-      <Link
+      {/* <Link
         to="/take-action"
         className={styles.modalOption}
         onClick={() => setOpen(false)}
       >
         TAKE ACTION
-      </Link>
+      </Link> */}
       {/* use /contact page for verification; reinstall this page once verification is complete */}
       {/* <a
         href="https://secure.winred.com/elect-common-sense/contact-us"
