@@ -58,6 +58,10 @@
   cursor: pointer;
 }
 
+.checkbox-wrapper.indent {
+  margin: 0.5rem 0 1.5rem 2.5rem;
+}
+
 /* general mobile styling */
 @media only screen and (max-width: 900px) and (min-height: 300px) {
   .text-content {
