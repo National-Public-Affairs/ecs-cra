@@ -39,7 +39,7 @@ export default function Navbar() {
             MISSION
           </Link>
 
-          {/* <Link
+          <Link
             to="/take-action"
             className={
               location.pathname === '/take-action'
@@ -48,7 +48,7 @@ export default function Navbar() {
             }
           >
             TAKE ACTION
-          </Link> */}
+          </Link>
 
           <Link
             to="/contact"
