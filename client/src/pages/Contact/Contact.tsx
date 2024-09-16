@@ -25,7 +25,7 @@ export default function Contact() {
   const onSubmit = async (data: FormData) => {
     const toastId = toast.loading('Submitting...');
     try {
-      await fetch('/send', {
+      await fetch('/submit-contact', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

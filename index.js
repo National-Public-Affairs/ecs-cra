@@ -20,7 +20,7 @@ app.get('/*', (req, res) => {
 
 // frontend sends form data here
 // data is sent to DirectSnd's endpoint
-app.post('/send', async (req, res) => {
+app.post('/submit-contact', async (req, res) => {
   // always attempt to submit to Google Sheets
   try {
     const sheetSubmission = await googleSheet.writeToSheet(req.body);
