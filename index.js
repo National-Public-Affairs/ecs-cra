@@ -13,12 +13,29 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, './client/build')));
 
+// -----------------------------------------------------------------------------
 // serves frontend app
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '/client/build/index.html'));
 });
 
-// frontend sends form data here
+// -----------------------------------------------------------------------------
+// 'Take Action' form submissions
+app.post('/submit-action', async (req, res) => {
+  // attempt to submit to Google Sheets
+  try {
+    const sheetSubmission = await googleSheet.writeToSheetTwo(req.body);
+
+    if (sheetSubmission) res.sendStatus(200);
+  } catch {
+    res.sendStatus(400).json({
+      message: 'Bad request',
+    });
+  }
+});
+
+// -----------------------------------------------------------------------------
+// contact form submissions
 // data is sent to DirectSnd's endpoint
 app.post('/submit-contact', async (req, res) => {
   // always attempt to submit to Google Sheets
@@ -64,6 +81,7 @@ app.post('/submit-contact', async (req, res) => {
   }
 });
 
+// -----------------------------------------------------------------------------
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
