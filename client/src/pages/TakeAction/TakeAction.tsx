@@ -44,7 +44,6 @@ export default function TakeAction() {
     'typeVolunteering', // 1
     'typeGrassroots', // 2
   ]);
-  console.log(watchCheckboxes)
 
   const onSubmit = async (data: FormData) => {
     // if no checkboxes selected; stops submission
