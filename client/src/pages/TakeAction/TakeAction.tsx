@@ -178,13 +178,13 @@ export default function TakeAction() {
           </label>
           <input
             type="text"
-            {...register('firstName', { required: true, maxLength: 20 })}
+            {...register('firstName', { required: true, maxLength: 50 })}
             aria-invalid={errors.firstName ? "true" : "false"}
           />
           {errors.firstName?.type === 'required'
             && <div role="alert">First name is required</div>}
           {errors.firstName?.type === 'maxLength'
-            && <div role="alert">Length cannot exceed 20 characters</div>}
+            && <div role="alert">Length cannot exceed 50 characters</div>}
 
           {/* LAST NAME INPUT */}
           <label htmlFor="lastName">
@@ -193,11 +193,24 @@ export default function TakeAction() {
           </label>
           <input
             type="text"
-            {...register('lastName', { required: false, maxLength: 20 })}
+            {...register('lastName', { required: true, maxLength: 50 })}
             aria-invalid={errors.lastName ? "true" : "false"}
           />
           {errors.lastName?.type === 'maxLength'
-            && <div role="alert">Length cannot exceed 20 characters</div>}
+            && <div role="alert">Length cannot exceed 50 characters</div>}
+
+          {/* COUNTY INPUT */}
+          <label htmlFor="county">
+            County
+            <span> *</span>
+          </label>
+          <input
+            type="text"
+            {...register('county', { required: true, maxLength: 50 })}
+            aria-invalid={errors.lastName ? "true" : "false"}
+          />
+          {errors.lastName?.type === 'maxLength'
+            && <div role="alert">Length cannot exceed 50 characters</div>}
 
           {/* EMAIL INPUT */}
           <label htmlFor="email">
