@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -30,25 +30,32 @@ type FormData = {
 export default function TakeAction() {
   const navigate = useNavigate();
 
+  const [checkboxError, setCheckboxError] = useState(false);
+
   const {
     register,
-    unregister,
     formState: { errors },
     handleSubmit,
     watch,
   } = useForm<FormData>();
   // https://echobind.com/post/conditionally-render-fields-using-react-hook-form
   const watchCheckboxes = watch([
-    'typeCandidateReferral',
-    'typeVolunteering',
-    'typeGrassroots',
+    'typeCandidateReferral', // 0
+    'typeVolunteering', // 1
+    'typeGrassroots', // 2
   ]);
-  console.log('referral checkbox', watchCheckboxes) 
+  console.log(watchCheckboxes)
 
   const onSubmit = async (data: FormData) => {
+    // if no checkboxes selected; stops submission
+    if (!watchCheckboxes[0] && !watchCheckboxes[1] && !watchCheckboxes[2]) {
+      setCheckboxError(true);
+      return;
+    } else {
+      setCheckboxError(false);
+    }
+    console.log('DATA', data)
     const toastId = toast.loading('Submitting...');
-    console.log('REFERRAL CHECKBOX on submit', watchCheckboxes)
-    console.log('DATA on submit', data);
     try {
       await fetch('/submit-action', {
         method: 'POST',
@@ -62,7 +69,7 @@ export default function TakeAction() {
       toast.error(e, { id: toastId });
     }
     toast.success('Submitted successfully', { id: toastId });
-    // navigate('/');
+    navigate('/');
   };
 
   return (
@@ -106,6 +113,9 @@ export default function TakeAction() {
           <div>Select all that apply
             <i> (pick at least one)</i>
             :
+            {checkboxError && (
+              <div role="alert">You must pick at least one</div>
+            )}
           </div>
           {/* REFERRAL CHECKBOX */}
           <div className='checkbox-wrapper'>
