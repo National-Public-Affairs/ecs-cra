@@ -19,15 +19,12 @@ type FormData = {
   zip: string;
   mobile: number;
   message?: string;
-  volunteerInterest?: 
-    | 'door knocking'
-    | 'phone banking'
-    | 'writing postcards'
-    | 'literature drops'
-    | 'sign placement'
-    | 'hosting an event'
-    | 'other'
-  ;
+  doorKnocking: boolean;
+  phoneBanking: boolean;
+  writingPostcards: boolean;
+  literatureDrops: boolean;
+  signPlacement: boolean;
+  hostingAnEvent: boolean;
 }
 
 export default function TakeAction() {
@@ -41,15 +38,19 @@ export default function TakeAction() {
     watch,
   } = useForm<FormData>();
   // https://echobind.com/post/conditionally-render-fields-using-react-hook-form
-  const watchCheckboxReferral = watch('typeCandidateReferral');
-  useEffect(() => {
-
-  }, [register, unregister, watchCheckboxReferral]);
+  const watchCheckboxes = watch([
+    'typeCandidateReferral',
+    'typeVolunteering',
+    'typeGrassroots',
+  ]);
+  console.log('referral checkbox', watchCheckboxes) 
 
   const onSubmit = async (data: FormData) => {
     const toastId = toast.loading('Submitting...');
+    console.log('REFERRAL CHECKBOX on submit', watchCheckboxes)
+    console.log('DATA on submit', data);
     try {
-      await fetch('/send', {
+      await fetch('/submit-action', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -61,7 +62,7 @@ export default function TakeAction() {
       toast.error(e, { id: toastId });
     }
     toast.success('Submitted successfully', { id: toastId });
-    navigate('/');
+    // navigate('/');
   };
 
   return (
@@ -99,56 +100,74 @@ export default function TakeAction() {
             <button>Donate Today</button>
           </a>
         </div>
-        <p>I know a Common Sense Candidate!</p>
-        <p>
-          We would love to hear about potential candidates you recommend in your area! Thank for alerting us!
-        </p>
 
+        {/* ---------------------------------------------------------------- */}
         <form className={styles.wrapper} onSubmit={handleSubmit(onSubmit)}>
-          <div>Select all that apply:</div>
+          <div>Select all that apply
+            <i> (pick at least one)</i>
+            :
+          </div>
           {/* REFERRAL CHECKBOX */}
           <div className='checkbox-wrapper'>
             <input
               id='typeCandidateReferral'
               type="checkbox"
-              {...register('typeCandidateReferral', { required: true })}
-              aria-invalid={errors.typeCandidateReferral ? "true" : "false"}
+              {...register('typeCandidateReferral')}
             />
             <label htmlFor="typeCandidateReferral">I know a Common Sense Candidate!</label>
           </div>
-          {errors.typeCandidateReferral?.type === 'required'
-            && <div role="alert">Opt-in is required</div>}
 
           {/* VOLUNTEER CHECKBOX */}
           <div className='checkbox-wrapper'>
             <input
               id='volunteer'
               type="checkbox"
-              {...register('typeCandidateReferral', { required: true })}
-              aria-invalid={errors.typeCandidateReferral ? "true" : "false"}
+              {...register('typeVolunteering')}
             />
             <label htmlFor="volunteer">I want to volunteer!</label>
           </div>
-          {errors.typeCandidateReferral?.type === 'required'
-            && <div role="alert">Opt-in is required</div>}
 
           {/* GRASSROOTS CHECKBOX */}
           <div className='checkbox-wrapper'>
             <input
               id='grassroots'
               type="checkbox"
-              {...register('typeCandidateReferral', { required: true })}
-              aria-invalid={errors.typeCandidateReferral ? "true" : "false"}
+              {...register('typeGrassroots')}
             />
-            <label htmlFor="grassroots">I know a Common Sense Candidate!</label>
+            <label htmlFor="grassroots">I want to join my county!</label>
           </div>
-          {errors.typeCandidateReferral?.type === 'required'
-            && <div role="alert">Opt-in is required</div>}
 
-          <div className={styles.divider} />
+          {/* -------------------------------------------------------------- */}
+          {(watchCheckboxes[0] || watchCheckboxes[1] || watchCheckboxes[2]) && (
+            <div className={styles.formMsg}>
+              {watchCheckboxes[0] && (
+                <p>
+                  We would love to hear about potential candidates you recommend
+                  in your area! Thank you for alerting us.
+                </p>
+              )}
+              {watchCheckboxes[1] && (
+                <p>
+                  We need manpower in every corner of the state to help us elect
+                  Common Sense candidates. Whether you have 5 minutes, 5 hours,
+                  or 5 days, we have a place for you.
+                </p>
+              )}
+              {watchCheckboxes[2] && (
+                <p>
+                  We’re building a grassroots force in every county across New
+                  Jersey. Let us know if you’d like to be connected with yours.
+                </p>
+              )}
+            </div>
+          )}
 
+          {/* -------------------------------------------------------------- */}
           {/* FIRST NAME INPUT */}
-          <label htmlFor="firstName">First Name</label>
+          <label htmlFor="firstName">
+            First Name
+            <span> *</span>
+          </label>
           <input
             type="text"
             {...register('firstName', { required: true, maxLength: 20 })}
@@ -160,7 +179,10 @@ export default function TakeAction() {
             && <div role="alert">Length cannot exceed 20 characters</div>}
 
           {/* LAST NAME INPUT */}
-          <label htmlFor="lastName">Last Name</label>
+          <label htmlFor="lastName">
+            Last Name
+            <span> *</span>
+          </label>
           <input
             type="text"
             {...register('lastName', { required: false, maxLength: 20 })}
@@ -170,7 +192,10 @@ export default function TakeAction() {
             && <div role="alert">Length cannot exceed 20 characters</div>}
 
           {/* EMAIL INPUT */}
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">
+            Email
+            <span> *</span>
+          </label>
           <input
             type="text"
             {...register('email', {
@@ -188,7 +213,10 @@ export default function TakeAction() {
             && <div role="alert">Email address is required</div>}
 
           {/* ZIP CODE INPUT */}
-          <label htmlFor="zip">ZIP Code</label>
+          <label htmlFor="zip">
+            ZIP Code
+            <span> *</span>
+          </label>
           <input
             type="text"
             {...register('zip', {
@@ -207,7 +235,10 @@ export default function TakeAction() {
             && <div role="alert">Must be a valid ZIP code (numbers only)</div>}
 
           {/* MOBILE INPUT */}
-          <label htmlFor="mobile">Mobile</label>
+          <label htmlFor="mobile">
+            Mobile
+            <span> *</span>
+          </label>
           <input
             type="text"
             {...register('mobile', {
@@ -226,13 +257,93 @@ export default function TakeAction() {
             && <div role="alert">Must be a valid phone number (numbers only)</div>}
 
           {/* MESSAGE INPUT */}
-          <label htmlFor="message">Add your message</label>
-          <textarea
-            {...register('message', { required: false, maxLength: 300 })}
-            aria-invalid={errors.message ? "true" : "false"}
-          />
-          {errors.message?.type === 'maxLength'
-            && <div role="alert">Length cannot exceed 300 characters</div>}
+          {(watchCheckboxes[0] || watchCheckboxes[2]) && (
+            <>
+              <label htmlFor="message">
+                Add your message
+                {watchCheckboxes[0] && (
+                  <>
+                    <br />
+                    <i>
+                      Describe this potential candidate, what office you think they’d be a fit for, and how they will advance Common Sense in New Jersey!
+                    </i>
+                  </>
+                )}
+              </label>
+              <textarea
+                {...register('message', { required: false, maxLength: 300 })}
+                aria-invalid={errors.message ? "true" : "false"}
+              />
+              {errors.message?.type === 'maxLength'
+                && <div role="alert">Length cannot exceed 300 characters</div>}
+            </>
+          )}
+
+          {/* -------------------------------------------------------------- */}
+          {watchCheckboxes[1] && (
+            <>
+              {/* VOLUNTEER INTERESTS: DOOR KNOCKING */}
+              <label>I am interested in:</label>
+              <div className='checkbox-wrapper indent'>
+                <input
+                  id='door-knocking'
+                  type="checkbox"
+                  {...register('doorKnocking')}
+                />
+                <label htmlFor="door-knocking">Door knocking</label>
+              </div>
+
+              {/* VOLUNTEER INTERESTS: PHONE BANKING */}
+              <div className='checkbox-wrapper indent'>
+                <input
+                  id='phone-banking'
+                  type="checkbox"
+                  {...register('phoneBanking')}
+                />
+                <label htmlFor="phone-banking">Phone banking</label>
+              </div>
+
+              {/* VOLUNTEER INTERESTS: WRITING POSTCARDS */}
+              <div className='checkbox-wrapper indent'>
+                <input
+                  id="writing-postcards"
+                  type="checkbox"
+                  {...register('writingPostcards')}
+                />
+                <label htmlFor="writing-postcards">Writing postcards</label>
+              </div>
+
+              {/* VOLUNTEER INTERESTS: LITERATURE DROPS */}
+              <div className='checkbox-wrapper indent'>
+                <input
+                  id="literature-drops"
+                  type="checkbox"
+                  {...register('literatureDrops')}
+                />
+                <label htmlFor="literature-drops">Literature drops</label>
+              </div>
+
+              {/* VOLUNTEER INTERESTS: SIGN PLACEMENT */}
+              <div className='checkbox-wrapper indent'>
+                <input
+                  id="sign-placement"
+                  type="checkbox"
+                  {...register('writingPostcards')}
+                />
+                <label htmlFor="sign-placement">Sign placement</label>
+              </div>
+
+              {/* VOLUNTEER INTERESTS: HOSTING AN EVENT */}
+              <div className='checkbox-wrapper indent'>
+                <input
+                  id="hosting-an-event"
+                  type="checkbox"
+                  {...register('hostingAnEvent')}
+                />
+                <label htmlFor="hosting-an-event">Hosting an event</label>
+              </div>
+            </>
+          )}
 
           {/* SUBMIT BUTTON */}
           <input
