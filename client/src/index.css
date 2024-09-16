@@ -17,6 +17,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
+  /* COLORS */
   --red: #ef0b2e;
   --purple-1: #aabeff;
   --purple-2: #7772ff;
@@ -24,8 +25,12 @@
   --purple-4: #1d195d;
   --purple-5: #0f0c3d;
   
+  /* GRADIENTS */
   --gradient-primary: radial-gradient(circle, #3C38C6 35%, #262A9C 100%);
   --gradient-secondary: linear-gradient(180deg, #2B2784, rgba(29, 25, 93, 1));
+
+  /* BORDERS */
+  --border-radius-sm: 3px;
 }
 
 * {
@@ -153,6 +158,12 @@ form {
   text-align: left;
 }
 
+form i {
+  font-size: 0.85rem;
+  line-height: 0.85rem;
+  color: var(--purple-1);
+}
+
 label {
   display: block;
   margin-top: 1.5rem;
@@ -164,6 +175,10 @@ label {
 
 label:hover {
   box-shadow: 0 0 0 1.5px var(--color-red-primary);
+}
+
+label > span {
+  color: var(--red);
 }
 
 input, textarea {
